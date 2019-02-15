@@ -1,0 +1,304 @@
+{
+    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT Thu Feb 14 21:31:10 2019",
+    "version": "eosio::abi/1.1",
+    "structs": [
+        {
+            "name": "account",
+            "base": "",
+            "fields": [
+                {
+                    "name": "user_seq",
+                    "type": "uint32"
+                },
+                {
+                    "name": "blockchain_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "tokens",
+                    "type": "asset[]"
+                }
+            ]
+        },
+        {
+            "name": "consume",
+            "base": "",
+            "fields": [
+                {
+                    "name": "user_seq",
+                    "type": "uint32"
+                },
+                {
+                    "name": "cost",
+                    "type": "asset"
+                },
+                {
+                    "name": "memo",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "eraseid",
+            "base": "",
+            "fields": [
+                {
+                    "name": "user_seq",
+                    "type": "uint32"
+                }
+            ]
+        },
+        {
+            "name": "eraseqna",
+            "base": "",
+            "fields": [
+                {
+                    "name": "qna_seq",
+                    "type": "uint32"
+                }
+            ]
+        },
+        {
+            "name": "qnaend",
+            "base": "",
+            "fields": [
+                {
+                    "name": "qna_seq",
+                    "type": "uint64"
+                },
+                {
+                    "name": "enc_pwd",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "qnainfotb",
+            "base": "",
+            "fields": [
+                {
+                    "name": "qna_seq",
+                    "type": "uint64"
+                },
+                {
+                    "name": "qna_vote_result",
+                    "type": "votetb[]"
+                },
+                {
+                    "name": "end_flag",
+                    "type": "uint8"
+                },
+                {
+                    "name": "std_bet_token",
+                    "type": "asset"
+                },
+                {
+                    "name": "win_symbol",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "qnaresponse",
+            "base": "",
+            "fields": [
+                {
+                    "name": "qna_seq",
+                    "type": "uint32"
+                },
+                {
+                    "name": "user_seq",
+                    "type": "uint32"
+                },
+                {
+                    "name": "quantity",
+                    "type": "asset"
+                },
+                {
+                    "name": "answer_str",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "refund",
+            "base": "",
+            "fields": [
+                {
+                    "name": "user_seq",
+                    "type": "uint32"
+                },
+                {
+                    "name": "cost",
+                    "type": "asset"
+                },
+                {
+                    "name": "memo",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "setbcid",
+            "base": "",
+            "fields": [
+                {
+                    "name": "blockchain_id",
+                    "type": "name"
+                },
+                {
+                    "name": "user_seq",
+                    "type": "uint32"
+                }
+            ]
+        },
+        {
+            "name": "signup",
+            "base": "",
+            "fields": [
+                {
+                    "name": "user_seq",
+                    "type": "uint32"
+                }
+            ]
+        },
+        {
+            "name": "transfer",
+            "base": "",
+            "fields": [
+                {
+                    "name": "from",
+                    "type": "name"
+                },
+                {
+                    "name": "to",
+                    "type": "name"
+                },
+                {
+                    "name": "quantity",
+                    "type": "asset"
+                },
+                {
+                    "name": "memo",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "votetb",
+            "base": "",
+            "fields": [
+                {
+                    "name": "user_seq",
+                    "type": "uint32"
+                },
+                {
+                    "name": "answer",
+                    "type": "string"
+                },
+                {
+                    "name": "bet_token",
+                    "type": "asset"
+                },
+                {
+                    "name": "win_token",
+                    "type": "asset"
+                },
+                {
+                    "name": "result",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "withdraw",
+            "base": "",
+            "fields": [
+                {
+                    "name": "requestor",
+                    "type": "name"
+                },
+                {
+                    "name": "user_seq",
+                    "type": "uint32"
+                },
+                {
+                    "name": "quantity",
+                    "type": "asset"
+                }
+            ]
+        }
+    ],
+    "types": [],
+    "actions": [
+        {
+            "name": "consume",
+            "type": "consume",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "eraseid",
+            "type": "eraseid",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "eraseqna",
+            "type": "eraseqna",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "qnaend",
+            "type": "qnaend",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "qnaresponse",
+            "type": "qnaresponse",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "refund",
+            "type": "refund",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "setbcid",
+            "type": "setbcid",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "signup",
+            "type": "signup",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "transfer",
+            "type": "transfer",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "withdraw",
+            "type": "withdraw",
+            "ricardian_contract": ""
+        }
+    ],
+    "tables": [
+        {
+            "name": "account",
+            "type": "account",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "qnainfo",
+            "type": "qnainfotb",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        }
+    ],
+    "ricardian_clauses": [],
+    "variants": [],
+    "abi_extensions": []
+}
