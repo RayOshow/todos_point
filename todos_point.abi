@@ -1,5 +1,5 @@
 {
-    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT Thu Feb 14 21:31:10 2019",
+    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT Mon Feb 18 06:29:38 2019",
     "version": "eosio::abi/1.1",
     "structs": [
         {
@@ -17,6 +17,86 @@
                 {
                     "name": "tokens",
                     "type": "asset[]"
+                }
+            ]
+        },
+        {
+            "name": "bucky",
+            "base": "",
+            "fields": [
+                {
+                    "name": "bucky_seq",
+                    "type": "uint32"
+                },
+                {
+                    "name": "max_participant",
+                    "type": "uint32"
+                },
+                {
+                    "name": "participant_total",
+                    "type": "uint32"
+                },
+                {
+                    "name": "participant",
+                    "type": "uint32[]"
+                },
+                {
+                    "name": "lots",
+                    "type": "lotstb[]"
+                },
+                {
+                    "name": "end_flag",
+                    "type": "uint8"
+                },
+                {
+                    "name": "start_time",
+                    "type": "uint32"
+                },
+                {
+                    "name": "end_time",
+                    "type": "uint32"
+                }
+            ]
+        },
+        {
+            "name": "buckyend",
+            "base": "",
+            "fields": [
+                {
+                    "name": "bucky_seq",
+                    "type": "uint32"
+                }
+            ]
+        },
+        {
+            "name": "buckyjoin",
+            "base": "",
+            "fields": [
+                {
+                    "name": "bucky_seq",
+                    "type": "uint32"
+                },
+                {
+                    "name": "user_seq",
+                    "type": "uint32"
+                }
+            ]
+        },
+        {
+            "name": "buckyreg",
+            "base": "",
+            "fields": [
+                {
+                    "name": "bucky_seq",
+                    "type": "uint32"
+                },
+                {
+                    "name": "max_participant",
+                    "type": "uint32"
+                },
+                {
+                    "name": "picks",
+                    "type": "uint32[]"
                 }
             ]
         },
@@ -39,6 +119,16 @@
             ]
         },
         {
+            "name": "erasebucky",
+            "base": "",
+            "fields": [
+                {
+                    "name": "bucky_seq",
+                    "type": "uint32"
+                }
+            ]
+        },
+        {
             "name": "eraseid",
             "base": "",
             "fields": [
@@ -55,6 +145,24 @@
                 {
                     "name": "qna_seq",
                     "type": "uint32"
+                }
+            ]
+        },
+        {
+            "name": "lotstb",
+            "base": "",
+            "fields": [
+                {
+                    "name": "rank",
+                    "type": "uint32"
+                },
+                {
+                    "name": "count",
+                    "type": "uint32"
+                },
+                {
+                    "name": "winners",
+                    "type": "uint32[]"
                 }
             ]
         },
@@ -232,8 +340,28 @@
     "types": [],
     "actions": [
         {
+            "name": "buckyend",
+            "type": "buckyend",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "buckyjoin",
+            "type": "buckyjoin",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "buckyreg",
+            "type": "buckyreg",
+            "ricardian_contract": ""
+        },
+        {
             "name": "consume",
             "type": "consume",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "erasebucky",
+            "type": "erasebucky",
             "ricardian_contract": ""
         },
         {
@@ -286,6 +414,13 @@
         {
             "name": "account",
             "type": "account",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "bucky",
+            "type": "bucky",
             "index_type": "i64",
             "key_names": [],
             "key_types": []

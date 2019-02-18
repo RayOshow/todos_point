@@ -5,6 +5,8 @@
 #include <eosiolib/dispatcher.hpp>
 #include <vector>
 #include <eosiolib/crypto.hpp>
+#include <eosiolib/transaction.hpp>
+
 
 using eosio::asset;
 using eosio::permission_level;
@@ -15,6 +17,7 @@ using std::string;
 using std::vector;
 using eosio::datastream;
 using eosio::checksum256;
+using eosio::transaction;
 
 // main header
 #include "todos_point.hpp"
@@ -22,6 +25,7 @@ using eosio::checksum256;
 // table
 #include "table/account_table.hpp"
 #include "table/qna_table.hpp"
+#include "table/bucky_table.hpp"
 
 // account
 #include "account/account_control.hpp"
@@ -29,6 +33,10 @@ using eosio::checksum256;
 // qna
 #include "qna/qna_define.hpp"
 #include "qna/qna_control.hpp"
+
+// bucky
+#include "bucky/bucky_define.hpp"
+#include "bucky/bucky_control.hpp"
 
 /**
  @class 
@@ -49,7 +57,8 @@ class [[eosio::contract]] todos_point : public eosio::contract {
 		todos_point(name receiver, name code,  datastream<const char*> ds)
 			: contract(receiver, code, ds)  
 			, account_controller(_self)
-			, qna_controller(_self) {
+			, qna_controller(_self) 
+			, bucky_controller(_self){
 		}
 
 		/**
@@ -173,12 +182,37 @@ class [[eosio::contract]] todos_point : public eosio::contract {
 		}
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////////
+		// bucky
+		[[eosio::action]]
+		void buckyreg(uint32_t bucky_seq, uint32_t max_participant, const std::vector<uint32_t>& picks) {
+			bucky_controller.register_bucky(bucky_seq, max_participant, picks);
+		}
 
+		[[eosio::action]]
+		void buckyjoin(uint32_t bucky_seq, uint32_t user_seq) {
+			bucky_controller.join_bucky( bucky_seq,  user_seq);
+		}		
+
+		[[eosio::action]]
+		void buckyend(uint32_t bucky_seq) {
+			bucky_controller.finish_bucky( bucky_seq);
+		}
+
+		/**
+			Erase bucky 
+		**/
+		[[eosio::action]]
+		void erasebucky(uint32_t bucky_seq) {
+			bucky_controller.delete_info(bucky_seq);
+		}
+
+
+	
 	private:
 
-		//typedef eosio::multi_index< "account"_n, account > accounts;
 		account_control account_controller;
 		qna_control qna_controller;
+		bucky_control bucky_controller;
 
 		/**
 			Send token by eosio.token contract outside.
@@ -215,4 +249,4 @@ extern "C" { \
    } \
 } \
 
-EOSIO_DISPATCH_CUSTOM( todos_point, (signup)(transfer)(withdraw)(eraseid)(setbcid)(consume)(refund)(qnaresponse)(qnaend)(eraseqna))
+EOSIO_DISPATCH_CUSTOM( todos_point, (signup)(transfer)(withdraw)(eraseid)(setbcid)(consume)(refund)(qnaresponse)(qnaend)(eraseqna)(buckyreg)(buckyend)(buckyjoin)(erasebucky))
