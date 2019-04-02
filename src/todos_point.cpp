@@ -1,3 +1,14 @@
+
+/**
+ *  Tpoint main contract
+ @Author : Ray OShow (raymond@todos.co.kr)
+ @Company : Todos
+ @brief: 
+    It is a project for the Company reward point.
+    Company reward point is connected to blockcahin tokens.
+    It is pair and everyone can track all of trx.
+    
+ */
 #include <eosiolib/asset.hpp>
 #include <eosiolib/eosio.hpp>
 #include <eosiolib/singleton.hpp>
@@ -6,7 +17,6 @@
 #include <vector>
 #include <eosiolib/crypto.hpp>
 #include <eosiolib/transaction.hpp>
-
 
 using eosio::asset;
 using eosio::permission_level;
@@ -37,16 +47,6 @@ using eosio::transaction;
 // bucky
 #include "bucky/bucky_define.hpp"
 #include "bucky/bucky_control.hpp"
-
-/**
- @class 
- @date 2019/02/09
- @Author Ray-OShow(raymond@todos.co.kr)
- @brief  
-	- Manages account info and their asset info.
-	- User can put and withdraw ther asset.
-	- Only tokens from todoskrtoken can be used.
-**/
 
 class [[eosio::contract]] todos_point : public eosio::contract {
 
